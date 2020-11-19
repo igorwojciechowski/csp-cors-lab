@@ -1,0 +1,19 @@
+
+#app_csp {
+    margin-top: 30px;
+    padding-top: 30px;
+}
+
+.response {
+    padding-top: 10px;
+}
+
+.response > div {
+    min-height: 50px;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.response > div > img {
+    max-width: 500px;
+}

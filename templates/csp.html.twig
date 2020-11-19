@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Content Security Policy{% endblock %}
+
+{% block app %}
+    <div id="app_csp">
+        <h5>Request</h5>
+        <form action="{{ path('csp') }}">
+            <div class="form-group">
+                <label for="policy">Policy</label>
+                <textarea class="form-control" id="policy" name="policy" placeholder="default-src 'self'"
+                          required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="payload">Payload</label>
+                <textarea class="form-control" id="payload" name="payload"
+                          placeholder="<img src=&quot;img/cat.jpg&quot; />"
+                          required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+        <div class="response">
+            <h5>Response</h5>
+            <label for="response_policy">Policy</label>
+            <div id="response_policy" class="border">
+                {% if policy is defined %}
+                    {{ policy }}
+                {% endif %}
+            </div>
+            <label for="response_payload">Payload</label>
+            <div id="response_payload" class="border">
+                {% if payload is defined %}
+                    {{ payload|raw }}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
