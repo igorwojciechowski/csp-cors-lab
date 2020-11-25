@@ -1,0 +1,22 @@
+---
+- hosts: lab.local
+  become: yes
+  become_method: sudo
+  become_user: root
+  vars:
+    user:
+      name: lab
+      password: password
+      uid: 1337
+    group:
+      name: lab
+      gid: 1337
+
+  roles:
+    - user
+    - docker
+    - docker_compose
+    - repository
+    - docker_nginx
+    - docker_php_1
+    - docker_php_2

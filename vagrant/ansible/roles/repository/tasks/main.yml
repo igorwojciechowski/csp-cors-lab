@@ -1,0 +1,13 @@
+---
+- name: Clone repository
+  git:
+    repo: https://github.com/igorwojciechowski/csp-cors-lab.git
+    dest: /var/www/html/
+
+- name: Chown
+  file:
+    path: "/var/www/html"
+    owner: "{{ user.name }}"
+    group: docker
+    mode: 0550
+    state: directory

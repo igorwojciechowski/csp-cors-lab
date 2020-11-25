@@ -1,0 +1,33 @@
+version: "2.4"
+
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: 170.20.0.0/24
+services:
+  nginx:
+    build: "./nginx/"
+    ports:
+    - 80:80
+    - 443:443
+    volumes:
+    - /var/log/nginx/:/var/log/nginx/
+    - /var/www/html/code/:/var/www/html/code/
+    networks:
+      default:
+        ipv4_address: 170.20.0.2
+  php1:
+    build: "./php1/"
+    volumes:
+      - /var/www/html/code/:/var/www/html/code/
+    networks:
+      default:
+        ipv4_address: 170.20.0.3
+  php2:
+    build: "./php2/"
+    volumes:
+      - /var/www/html/code/:/var/www/html/code/
+    networks:
+      default:
+        ipv4_address: 170.20.0.4

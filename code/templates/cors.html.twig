@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cross-Origin Resource Sharing{% endblock %}
+
+{% block app %}
+    <div id="app_csp">
+        <h2>Cross-Origin Resource Sharing</h2>
+        <h5>Request</h5>
+
+        <div class="form-group">
+            <label for="acao">Access-Control-Allow-Origin</label>
+            <textarea class="form-control" id="acao" name="acao" required>*</textarea>
+        </div>
+        <button class="btn btn-primary" onclick="sendCORS()">Send</button>
+
+    </div>
+{% endblock %}

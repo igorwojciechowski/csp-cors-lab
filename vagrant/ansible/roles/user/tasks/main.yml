@@ -1,0 +1,7 @@
+- name: Add user
+  user:
+    name: "{{ user.name }}"
+    password: "{{ user.password | password_hash('sha512') }}"
+    uid: "{{ user.uid }}"
+    shell: /bin/bash
+    groups: sudo
