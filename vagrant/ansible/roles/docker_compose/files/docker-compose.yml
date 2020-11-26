@@ -17,17 +17,10 @@ services:
     networks:
       default:
         ipv4_address: 170.20.0.2
-  php1:
-    build: "./php1/"
+  php:
+    build: "./php/"
     volumes:
       - /var/www/html/code/:/var/www/html/code/
     networks:
       default:
         ipv4_address: 170.20.0.3
-  php2:
-    build: "./php2/"
-    volumes:
-      - /var/www/html/code/:/var/www/html/code/
-    networks:
-      default:
-        ipv4_address: 170.20.0.4

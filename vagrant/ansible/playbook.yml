@@ -15,8 +15,8 @@
   roles:
     - user
     - docker
-    - docker_compose
     - repository
     - docker_nginx
     - docker_php_1
-    - docker_php_2
+    #- docker_php_2
+    - docker_compose

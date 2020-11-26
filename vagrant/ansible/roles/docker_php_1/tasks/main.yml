@@ -1,6 +1,6 @@
 - name: Create docker_php directory
   file:
-    path: "/home/{{ user.name }}/docker/php1"
+    path: "/home/{{ user.name }}/docker/php"
     owner: "{{ user.name }}"
     group: docker
     mode: 0550
@@ -9,14 +9,14 @@
 - name: Copy Dockerfile
   template:
     src: ./Dockerfile.j2
-    dest: "/home/{{ user.name }}/docker/php1/Dockerfile"
+    dest: "/home/{{ user.name }}/docker/php/Dockerfile"
     owner: "{{ user.name }}"
     group: docker
     mode: 0550
 
 - name: Create supervisord directory
   file:
-    path: "/home/{{ user.name }}/docker/php1/etc/supervisor/conf.d/"
+    path: "/home/{{ user.name }}/docker/php/etc/supervisor/conf.d/"
     owner: "{{ user.name }}"
     group: docker
     mode: 0550
@@ -25,14 +25,14 @@
 - name: Copy supervisord.conf
   copy:
     src: ./etc/supervisor/conf.d/supervisord.conf
-    dest: "/home/{{ user.name }}/docker/php1/etc/supervisor/conf.d/supervisord.conf"
+    dest: "/home/{{ user.name }}/docker/php/etc/supervisor/conf.d/supervisord.conf"
     owner: "{{ user.name }}"
     group: docker
     mode: 0550
 
 - name: Create php directory
   file:
-    path: "/home/{{ user.name }}/docker/php1/usr/local/etc/php/"
+    path: "/home/{{ user.name }}/docker/php/usr/local/etc/php/"
     owner: "{{ user.name }}"
     group: docker
     mode: 0550
@@ -41,7 +41,7 @@
 - name: Copy php.ini
   copy:
     src: ./usr/local/etc/php/php.ini
-    dest: "/home/{{ user.name }}/docker/php1/usr/local/etc/php/php.ini"
+    dest: "/home/{{ user.name }}/docker/php/usr/local/etc/php/php.ini"
     owner: "{{ user.name }}"
     group: docker
     mode: 0550

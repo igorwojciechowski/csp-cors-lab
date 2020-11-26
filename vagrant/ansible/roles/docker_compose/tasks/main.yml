@@ -12,3 +12,11 @@
     owner: "{{ user.name }}"
     group: docker
     mode: 0550
+
+- name: Run docker-compose
+  command: docker-compose up -d --build
+  args:
+    chdir: "/home/{{ user.name }}/docker/"
+
+- name: Run composer install inside docker
+  command: docker exec -i docker_php_1 bash -c "composer install"
