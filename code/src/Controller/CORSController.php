@@ -22,19 +22,19 @@ class CORSController extends AbstractController
     }
 
     /**
-     * @Route("/cors/resource", name="cors_resource")
+     * @Route("/cors/resource", name="cors_resource", methods={"GET", "POST", "OPTIONS"})
      * @param Request $request
      * @return Response
      */
     public function corsResource(Request $request): Response
     {
-
-        $accessControlAllowOrigin = $request->get('acao');
         return new Response(
-            "Ok!",
+            $request->getContent(),
             Response::HTTP_OK,
             [
-                'Access-Control-Allow-Origin' => $accessControlAllowOrigin
+                'Access-Control-Allow-Methods' => $request->get('methods'),
+                'Access-Control-Allow-Headers' => $request->get('headers'),
+                'Access-Control-Allow-Origin' => $request->get('origin')
             ]
         );
     }

@@ -6,12 +6,14 @@
     <div id="app_csp">
         <h2>Cross-Origin Resource Sharing</h2>
         <h5>Request</h5>
-
         <div class="form-group">
-            <label for="acao">Access-Control-Allow-Origin</label>
-            <textarea class="form-control" id="acao" name="acao" required>*</textarea>
+            <label for="origin">Access-Control-Allow-Origin</label>
+            <textarea class="form-control" id="origin" name="origin">*</textarea>
+            <label for="headers">Access-Control-Allow-Headers</label>
+            <textarea class="form-control" id="headers" name="headers">Content-Type</textarea>
+            <label for="methods">Access-Control-Allow-Methods</label>
+            <textarea class="form-control" id="methods" name="methods">POST, GET, OPTIONS</textarea>
         </div>
         <button class="btn btn-primary" onclick="sendCORS()">Send</button>
-
     </div>
 {% endblock %}
